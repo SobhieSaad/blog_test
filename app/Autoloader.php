@@ -11,8 +11,10 @@ class Autoloader {
         spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
+    
+
     /**
-     * @param string $class Contains the class name to be autoloaded.
+     * @param string $class 
      */
     static function autoload($class){
 
