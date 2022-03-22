@@ -49,11 +49,15 @@ class BlogController {
              !empty($_POST['small_desc']) && !empty($_POST['content']) && !empty($_POST['author'])) {
                 if(!ctype_space($_POST['title'])  && !ctype_space($_POST['content']) && !ctype_space($_POST['author'])) {
 					if(mb_strlen($_POST['title']) >= 3 && mb_strlen($_POST['content']) >= 3 && mb_strlen($_POST['author']) >= 3) { 
-							$data = array('title' => htmlspecialchars($_POST['title']), 
+                        $image_name=self::UploadImage($_FILES['image']);
+	
+                        $data = array(
+                             'title' => htmlspecialchars($_POST['title']), 
                              'content' => htmlspecialchars($_POST['content']),
-                              'author' => htmlspecialchars($_POST['author']));
-                            $image=$_FILES['image'];
-                            
+                              'author' => htmlspecialchars($_POST['author']),
+                              'image'=>$image_name
+                            );
+                                
 							if ($this->modelPost->add($data)) {
 								$this->manager->msgSuccess = 'The post was added with success.';
 							} else {
@@ -70,6 +74,19 @@ class BlogController {
             }
         }
         $this->manager->getView('addPost');
+    }
+
+    public function UploadImage($imageUpload) : string
+    {
+        $target_dir = "upload/";
+        $file = $imageUpload['name'];
+        $path = pathinfo($file);
+        $filename = $path['filename'];
+        $ext = $path['extension'];
+        $temp_name = $imageUpload['tmp_name'];
+        $path_filename_ext = $target_dir.$filename.".".$ext;
+        move_uploaded_file($temp_name,$path_filename_ext);
+        return $temp_name . $path_filename_ext;
     }
 
 
