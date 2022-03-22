@@ -13,10 +13,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="content/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Blog created with PHP/OOP using the MVC architecture and bootstrap." />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/path/to/bootstrap/js/bootstrap.min.js"></script>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <script src="content/js/jquery.min.js"></script>
+<script src="content/js/getAuthorsModal.js"></script>
 
 <script>
 		$(document).ready(function () {
@@ -47,7 +49,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 				<div class="head-nav">
 					<span class="menu"> </span>
-						<ul class="cl-effect-15">
+						<ul >
 							<li><a href="<?=ROOT_URL?>">Übersicht</a></li>
 							<?php if(!empty($_SESSION['active'])) : ?>
 								<li><a href="" data-hover="Neuer Eintrag">

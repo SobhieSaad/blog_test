@@ -48,6 +48,34 @@ class BlogController {
     }
 
  
+    public function add() {
+        if (!empty($_POST['add_submit'])) { 
+            if (isset($_POST['title'], $_POST['content'], $_POST['author'])  && !empty($_POST['title']) &&
+             !empty($_POST['small_desc']) && !empty($_POST['content']) && !empty($_POST['author'])) {
+                if(!ctype_space($_POST['title'])  && !ctype_space($_POST['content']) && !ctype_space($_POST['author'])) {
+					if(mb_strlen($_POST['title']) >= 3 && mb_strlen($_POST['content']) >= 3 && mb_strlen($_POST['author']) >= 3) { 
+							$data = array('title' => htmlspecialchars($_POST['title']), 
+                             'content' => htmlspecialchars($_POST['content']),
+                              'author' => htmlspecialchars($_POST['author']));
+							if ($this->modelPost->add($data)) {
+								$this->manager->msgSuccess = 'The post was added with success.';
+							} else {
+								$this->manager->msgError = 'An error has occured. Please contact the site admin.';
+							}
+					} else {
+						$this->manager->msgError = 'Minimum 3 letters required for each field.';
+					}
+				} else {
+					$this->manager->msgError = 'Please don\'t fill any of the fields with blank spaces.';
+				}
+            } else {
+                $this->manager->msgError = 'Kindly fill all of the required fields before you submit, and make sure the title is less than 50 characters!';
+            }
+        }
+        $this->manager->getView('add');
+    }
+
+
     public function login() {
         if (!empty($_SESSION)) {
             header('Location: ' . ROOT_URL);
