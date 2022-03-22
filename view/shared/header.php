@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -56,11 +50,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									Neuer Eintrag
 								</a></li>
                             <?php endif ?>
-							<li><a  href="<?=ROOT_URL?>?p=blogController&amp;a=blogPosts" data-hover="Impressum">Impressum</a></li>
+							<li><a  href="<?=ROOT_URL?>?controller=blogController&amp;action=blogPosts" data-hover="Impressum">Impressum</a></li>
                             <?php if(empty($_SESSION['active'])): ?>
-                                <li><a href="<?=ROOT_URL?>?p=authenticationController&amp;a=login" class="float-right" data-hover="LOGIN">LOGIN</a></li>
+                                <li><a href="<?=ROOT_URL?>?controller=authenticationController&amp;action=login" class="float-right" data-hover="LOGIN">LOGIN</a></li>
                             <?php elseif(!empty($_SESSION['active'])) : ?>
-                                <li><a href="<?=ROOT_URL?>?p=authenticationController&amp;a=logout" class="float-right" data-hover="LOGOUT">LOGOUT</a></li>
+                                <li><a href="<?=ROOT_URL?>?controller=authenticationController&amp;action=logout" class="float-right" data-hover="LOGOUT">LOGOUT</a></li>
                             <?php endif ?>
                             <div class="clearfix"> </div>
 						</ul>

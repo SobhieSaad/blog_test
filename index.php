@@ -20,14 +20,14 @@ define('ROOT_PATH', __DIR__ . '/');
 
 require ROOT_PATH . 'app/Autoloader.php';
 app\Autoloader::init(); // Load necessary classes
-if(!empty($_GET['p'])) {
-	$controller = $_GET['p'];
+if(!empty($_GET['controller'])) {
+	$controller = $_GET['controller'];
 } else {
 	$controller = 'authenticationController';
 }
 
-if(!empty($_GET['a'])){
-    $action = $_GET['a'];
+if(!empty($_GET['action'])){
+    $action = $_GET['action'];
 } else {
 	$action = 'home';
 }

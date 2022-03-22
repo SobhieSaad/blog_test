@@ -13,7 +13,7 @@
 										<h2>&iexcl;&iexcl; No blog posts found !!</h2>
 										<br/>
                                         <?php if(!empty($_SESSION['active'])) : ?>
-										    <h2><button type="button" onclick="window.location='<?=ROOT_URL?>?p=blogController&amp;a=add'" class="bold addFirstPost">Add your first blog post here.</button></h2>
+										    <h2><button type="button" onclick="window.location='<?=ROOT_URL?>?controller=blogController&amp;action=add'" class="bold addFirstPost">Add your first blog post here.</button></h2>
                                         <?php endif ?>
                                     </div>
 								</div>
@@ -30,7 +30,7 @@
 									<div class="card">
 										<div class="row">
 												<div class="col-md-9">
-													<a href="<?=ROOT_URL?>?p=blogController&amp;a=post&amp;id=<?=$post->id?>">
+													<a href="<?=ROOT_URL?>?controller=blogController&amp;action=post&amp;id=<?=$post->id?>">
 														
 														<h2 >
 															<?=$post->date?>	
@@ -44,7 +44,7 @@
 														<a onclick="showAuthorsModal()"><?=$post->author?></a>
 														
 														
-													<a class="float" href="<?=ROOT_URL?>?p=blogController&amp;a=post&amp;id=<?=$post->id?>">
+													<a class="float" href="<?=ROOT_URL?>?controller=blogController&amp;action=post&amp;id=<?=$post->id?>">
 															Kommentare: &nbsp;<?= $post->comments_count ?>
 														</a>
 													</p>
