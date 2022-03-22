@@ -18,7 +18,7 @@
 				<?php endif ?>
 
 
-                <form method="post" action="" role="form">
+                <form method="post" action="" enctype="multipart/form-data" role="form">
 
                     <div class="messages"></div>
 

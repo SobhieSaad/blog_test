@@ -39,7 +39,7 @@ class BlogController {
  
     public function post() {
         $this->manager->post = $this->modelPost->getById($this->id); // Get the specific post using it's ID
-        $this->manager->getView('post');
+        $this->manager->getView('showPost');
     }
 
  
@@ -52,6 +52,8 @@ class BlogController {
 							$data = array('title' => htmlspecialchars($_POST['title']), 
                              'content' => htmlspecialchars($_POST['content']),
                               'author' => htmlspecialchars($_POST['author']));
+                            $image=$_FILES['image'];
+                            
 							if ($this->modelPost->add($data)) {
 								$this->manager->msgSuccess = 'The post was added with success.';
 							} else {
@@ -67,7 +69,7 @@ class BlogController {
                 $this->manager->msgError = 'Kindly fill all of the required fields before you submit, and make sure the title is less than 50 characters!';
             }
         }
-        $this->manager->getView('add');
+        $this->manager->getView('addPost');
     }
 
 

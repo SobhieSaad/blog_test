@@ -11,7 +11,6 @@ class AuthenticationController
     protected $manager;
     protected $modelPost;
     protected $modelAuthentication;
-    private $id;
 
     public function __construct()
     {
@@ -19,11 +18,6 @@ class AuthenticationController
         $this->manager->getModel('Authentication');
         $this->modelPost = new Post();
         $this->modelAuthentication = new Authentication();
-        if (empty($_GET['id'])) {
-            $this->id = 0;
-        } else {
-            $this->id = (int) $_GET['id'];
-        }
     }
 
     public function login()
