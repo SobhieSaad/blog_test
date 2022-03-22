@@ -42,11 +42,6 @@ class BlogController {
         $this->manager->getView('post');
     }
 
-
-    public function notFound() {
-        $this->manager->getView('404');
-    }
-
  
     public function add() {
         if (!empty($_POST['add_submit'])) { 
@@ -76,35 +71,7 @@ class BlogController {
     }
 
 
-    public function login() {
-        if (!empty($_SESSION)) {
-            header('Location: ' . ROOT_URL);
-            exit();
-        } else if (isset($_POST['username'], $_POST['password'])) {
-            if($this->modelAuthentication->getAuthentication($_POST['username'], $_POST['password'])) {
-                session_start();
-                $_SESSION['active'] = $_POST['username'];
-                header('Location: ' . ROOT_URL);
-                exit();
-            } else {
-                $this->manager->msgError = 'Your login credentials are incorrect. Please try again later.';
-            }
-        }
-        $this->manager->getView('login');
-    }
-
-    public function logout() {
-        if (empty($_SESSION)) {
-            header('Location: ' . ROOT_URL);
-            exit();
-        } else if (!empty($_SESSION)) {
-            $_SESSION = array();
-            session_unset($_SESSION);
-            session_destroy();
-            setcookie(session_name(),'',0,'/');
-        }
-        $this->manager->getView('logout');
-    }
+  
 
 
 }

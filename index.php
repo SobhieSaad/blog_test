@@ -23,7 +23,7 @@ app\Autoloader::init(); // Load necessary classes
 if(!empty($_GET['p'])) {
 	$controller = $_GET['p'];
 } else {
-	$controller = 'blogController';
+	$controller = 'authenticationController';
 }
 
 if(!empty($_GET['a'])){

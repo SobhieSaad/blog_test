@@ -15,7 +15,7 @@ class Router {
     public static function run (array $params) {
 		
         $namespace = 'BlogPHP\controller\\';
-        $controllerDef = $namespace . 'BlogController';
+        $controllerDef = $namespace . 'AuthenticationController';
         $controllerPath = ROOT_PATH . 'controller/';
         $controller = ucfirst($params['ctrl']);
 		

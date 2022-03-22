@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="/path/to/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <script src="content/js/jquery.min.js"></script>
@@ -58,9 +58,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <?php endif ?>
 							<li><a  href="<?=ROOT_URL?>?p=blogController&amp;a=blogPosts" data-hover="Impressum">Impressum</a></li>
                             <?php if(empty($_SESSION['active'])): ?>
-                                <li><a href="<?=ROOT_URL?>?p=blogController&amp;a=login" class="float-right" data-hover="LOGIN">LOGIN</a></li>
+                                <li><a href="<?=ROOT_URL?>?p=authenticationController&amp;a=login" class="float-right" data-hover="LOGIN">LOGIN</a></li>
                             <?php elseif(!empty($_SESSION['active'])) : ?>
-                                <li><a href="<?=ROOT_URL?>?p=blogController&amp;a=logout" class="float-right" data-hover="LOGOUT">LOGOUT</a></li>
+                                <li><a href="<?=ROOT_URL?>?p=authenticationController&amp;a=logout" class="float-right" data-hover="LOGOUT">LOGOUT</a></li>
                             <?php endif ?>
                             <div class="clearfix"> </div>
 						</ul>
