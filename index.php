@@ -4,13 +4,13 @@ namespace BlogPHP;
 
 use BlogPHP\App;
 
+if (empty($_SESSION)) {
+	session_start();
+}
 if(isset($_SERVER["HTTPS"])&& strtolower($_SERVER["HTTPS"]) == "on" ) {
 	$protocol = 'https://';
 } else {
 	$protocol = 'http://';
-}
-if (empty($_SESSION)) {
-    session_start();
 }
 
 define('PROTOCOL', $protocol);
